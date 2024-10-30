@@ -1,8 +1,8 @@
 // Constantes de configuración
 const CONFIG = {
     INTERVALO_RELOJ: 1000,
-    VIDEO_HEIGHT: '200',
-    VIDEO_WIDTH: '355'  // Mantenemos proporción 16:9
+    VIDEO_HEIGHT: '240',
+    VIDEO_WIDTH: '426'  // Mantenemos proporción 16:9
 };
 
 // Clase para manejar el reloj digital
@@ -129,7 +129,12 @@ class ReproductorYouTube {
         horaReproduccion.setMinutes(parseInt(minutos));
         horaReproduccion.setSeconds(0);
 
+        // Si la hora de reproducción ya pasó hoy, programarla para el día siguiente
         const ahora = new Date();
+        if (horaReproduccion < ahora) {
+            horaReproduccion.setDate(horaReproduccion.getDate() + 1);
+        }
+
         const tiempoRestante = horaReproduccion.getTime() - ahora.getTime();
 
         if (tiempoRestante > 0) {
@@ -144,7 +149,6 @@ class ReproductorYouTube {
         }
     }
 }
-
 // Clase para manejar la configuración inicial
 class ConfiguracionInicial {
     constructor() {
@@ -217,8 +221,30 @@ function abrirPantallaCompleta() {
         elem.msRequestFullscreen();
     }
     this.divButtonabrirPantallaCompleta = document.getElementById('fullScreenButton');
+    this.divButtonexitFullScreenButton = document.getElementById('exitFullScreenButton');
     this.divButtonabrirPantallaCompleta.classList.add('d-none');
+    this.divButtonexitFullScreenButton.classList.remove('d-none');
 }
 
 // Botón para activar pantalla completa
 document.getElementById('fullScreenButton').onclick = abrirPantallaCompleta;
+
+// Función para salir del modo de pantalla completa
+function salirPantallaCompleta() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari y Opera
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+        document.msExitFullscreen();
+    }
+    this.divButtonabrirPantallaCompleta = document.getElementById('fullScreenButton');
+    this.divButtonexitFullScreenButton = document.getElementById('exitFullScreenButton');
+    this.divButtonabrirPantallaCompleta.classList.remove('d-none');
+    this.divButtonexitFullScreenButton.classList.add('d-none');
+}
+
+// Botón para salir de pantalla completa
+document.getElementById('exitFullScreenButton').onclick = salirPantallaCompleta;
