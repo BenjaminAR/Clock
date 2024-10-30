@@ -203,3 +203,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const config = new ConfiguracionInicial();
     config.iniciar();
 });
+
+// Función para abrir en pantalla completa
+function abrirPantallaCompleta() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari y Opera
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+    }
+    this.divButtonabrirPantallaCompleta = document.getElementById('fullScreenButton');
+    this.divButtonabrirPantallaCompleta.classList.add('d-none');
+}
+
+// Botón para activar pantalla completa
+document.getElementById('fullScreenButton').onclick = abrirPantallaCompleta;
