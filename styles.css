@@ -88,25 +88,26 @@ button:hover {
 
 .clock {
     text-align: center;
+    margin-top: -7rem;
 }
 
 #reloj {
-    font-size: 15vw;
+    font-size: 16vw;
     font-weight: 300;
-    color: #fff;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    color: #e1e1e1;    
 }
+/* text-shadow: 0 0 20px rgba(255, 255, 255, 0.186); */
 
 #ampm {
     font-size: 4vw;
-    color: #666;
+    color: #868686;
     margin-top: -2vw;
 }
 
 /* Estilos del reproductor */
 .player-container {
     position: fixed;
-    bottom: 20px;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -143,4 +144,43 @@ button:hover {
 
 .d-none{
     display: none;
+}
+
+.contenidoPrincipal{
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+.btn-close_container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.btn-close{
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+    color: #474747;
+}
+
+.btn-close:hover{
+    color: #a5a5a5;   
+}
+
+.btn-open_container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.btn-open{
+    margin-right: 1rem;
+    margin-top: 90vh;
 }

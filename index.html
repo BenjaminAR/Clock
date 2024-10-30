@@ -26,16 +26,21 @@
         </form>
     </div>
 
-    <div id="contenidoPrincipal" class="hidden">
+    <div id="contenidoPrincipal" class="hidden contenidoPrincipal">        
+        <div class="btn-close_container">
+            <button id="exitFullScreenButton" class="btn-close d-none" aria-hidden="true">X</button>
+        </div>
         <div class="clock-container">
             <div class="clock">
                 <div id="reloj"></div>
                 <div id="ampm"></div>
-                <button id="fullScreenButton" >Pantalla Completa</button>
             </div>
         </div>
         <div id="playerContainer" class="player-container hidden">
             <div id="player"></div>
+        </div>
+        <div class="btn-open_container">
+            <button id="fullScreenButton" class="btn-open"  aria-hidden="true">[ &nbsp;&nbsp; ]</button>
         </div>
     </div>
 
