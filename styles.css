@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Estilos del formulario inicial */
+.config-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.config-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.form-group input {
+    padding: 0.8rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #111;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #666;
+}
+
+button {
+    padding: 0.8rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* Estilos del reloj */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: all 0.5s ease;
+}
+
+.clock {
+    text-align: center;
+}
+
+#reloj {
+    font-size: 15vw;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+#ampm {
+    font-size: 4vw;
+    color: #666;
+    margin-top: -2vw;
+}
+
+/* Estilos del reproductor */
+.player-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    transition: all 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.player-container.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    #reloj {
+        font-size: 20vw;
+    }
+
+    #ampm {
+        font-size: 6vw;
+    }
+
+    .player-container {
+        width: 90%;
+    }
+}
+
+/* Animación de transición para el reloj cuando aparece el video */
+.clock-container.with-player {
+    height: 70vh;
+}
